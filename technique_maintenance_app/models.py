@@ -34,7 +34,7 @@ class Technique_Maintenance(models.Model):
         return reverse("to-detail", kwargs={"pk": self.pk})
 
     class Meta:
-        ordering = ['-id']
+        ordering = ['-date_holding_TO']
 
 
 

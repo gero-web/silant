@@ -57,5 +57,5 @@ class Claims(models.Model):
         super(Claims,self).clean()
 
     class Meta:
-        ordering = ['-id']
+        ordering = ['-date_rejection']
 

@@ -1,6 +1,12 @@
 {% extends 'root\base.html' %}
 
 {% block content %}
+<form method="get" >
+
+
+    <input type="text" name="q">
+    <input type="submit" value="Submit">
+</form>
 <table>
   {% for items in object_list %}
       <tr>

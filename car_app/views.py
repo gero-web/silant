@@ -12,8 +12,9 @@ class CarListView(ListView):
     model = Car
 
     def get_queryset(self):
-      t = self.request.GET.get('t', '')
-      print( Service_Company.objects.filter(Q(name__contains=t)))
+      t = self.request.GET.getlist('q', '')
+
+      print( Service_Company.objects.filter(Q(name__in=t)))
       if not self.request.user.is_authenticated:
             self.queryset =  Car.objects.all().select_related('model_steering_bridge','model_drive_axle',\
                                                 'model_transmission','model_engine', 'model_techique' ).\

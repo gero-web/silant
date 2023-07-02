@@ -79,6 +79,6 @@ class Car(models.Model):
         return  self.head_machine_no
 
     class Meta:
-        ordering = ['-id']
+        ordering = ['-date_shipment']
 
 
