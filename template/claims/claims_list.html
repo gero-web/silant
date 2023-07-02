@@ -1,0 +1,22 @@
+{% extends 'root\base.html' %}
+
+{% block content %}
+<table>
+  {% for items in object_list %}
+      <tr>
+          <td>item.date_rejection</td>
+          <td>item.operating_time_mh</td>
+          <td>item.failure_node</td>
+          <td>item.failure_description</td>
+          <td>item.recovery_method</td>
+          <td>item.used_spare_parts</td>
+          <td>item.date_recovery</td>
+          <td>item.downtime</td>
+          <td>item.car</td>
+          <td>item.service_company</td>
+      </tr>
+    {%empty%}
+      No claims.
+  {% endfor %}
+</table>
+{% endblock  %}

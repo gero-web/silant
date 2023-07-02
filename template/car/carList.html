@@ -1,0 +1,31 @@
+{% extends 'root\base.html' %}
+
+{% block content %}
+<table>
+  {% for items in object_list %}
+      <tr>
+          <td>item.head_machine_no</td>
+          <td>item.model_techique</td>
+          <td>item.model_engine</td>
+          <td>item.head_engine_no</td>
+          <td>item.model_transmission</td>
+          <td>item.head_transmission_no</td>
+          <td>item.model_drive_axle</td>
+          <td>item.head_drive_axle_no</td>
+          <td>item.model_steering_bridge</td>
+          <td>item.head_steering_bridge_no</td>
+          <td>item.deliver_contract_no</td>
+          {% if user.is_authenticated %}
+              <td>item.date_shipment</td>
+              <td>item.сonsignee</td>
+              <td>item.delivery_address</td>
+              <td>item.equipment</td>
+              <td>item.client</td>
+              <td>item.service_company</td>
+          {% endif %}
+      </tr>
+    {%empty%}
+      No cars.
+  {% endfor %}
+</table>
+{% endblock  %}

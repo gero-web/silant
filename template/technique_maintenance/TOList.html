@@ -1,0 +1,22 @@
+{% extends 'root\base.html' %}
+
+{% block content %}
+<table>
+  {% for items in object_list %}
+      <tr>
+          <td>item.kind_technique_maintenance</td>
+          <td>item.date_holding_TO</td>
+          <td>item.operating_time_mh</td>
+          <td>item.dress_order_no</td>
+          <td>item.dress_order</td>
+          <td>item.organization_that_carried_TO</td>
+          <td>item.car</td>
+          <td>item.downtime</td>
+          <td>item.car</td>
+          <td>item.service_company</td>
+      </tr>
+    {%empty%}
+      No claims.
+  {% endfor %}
+</table>
+{% endblock  %}
