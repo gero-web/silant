@@ -38,7 +38,17 @@
         </div>
     </header>
     <main>
+        <form method="get" >
+            <div class="serch-container">
+              <input type="text" name="q">
+              <div class="button-search">
+                  <button  class="button"  type="submit"> Нажми мну </button>
+                  <span    class="span" > <img src="{% static 'css/headers/logo.svg' %}" /></span>
+                </div>
+            </div>
+        </form>
         {% block content %}
+        
         {% endblock   %}
     </main>
     <footer class="footer">
@@ -50,9 +60,7 @@
             <p> Мой Силант 2022</p>
         </div>
     </footer>
-    <div class="button-container">
-        <input  class="button" value="Нажми мну" type="submit"/>
-    </div>
+   
 </div>
 </body>
 </html>

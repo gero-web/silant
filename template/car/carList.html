@@ -1,12 +1,8 @@
 {% extends 'root\base.html' %}
-
+{% load static %}
 {% block content %}
-<form method="get" >
 
 
-    <input type="text" name="q">
-    <input type="submit" class='button' value="Submit">
-</form>
 <table>
   {% for items in object_list %}
       <tr>

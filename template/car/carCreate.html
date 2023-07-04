@@ -1,5 +1,5 @@
 {% extends 'root\base.html' %}
-
+{% load static %}
 {% block content %}
 <form method="POST" >
 
@@ -7,6 +7,9 @@
 
     {{ form.as_p }}
 
-    <input type="submit" value="Submit">
+    <div class="button-container">
+        <span    class="span" > <img src="{% static 'css/headers/logo.svg' %}" /></span>
+        <button  class="button"  onclick="alert('aa');" type="submit"> Нажми мну </button>
+    </div>
 </form>
 {% endblock %}

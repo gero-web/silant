@@ -104,58 +104,15 @@ a:visited{
     color:$main_two;
 }
 
-.button {
-	display:inline-block;
-	vertical-align:top;
-	padding:0 25px;
-	height:60px;
-	color:#fff;
-	text-decoration:none;
-	font-family:Arial, sans-serif;
-	font-size:14px;
-	line-height:60px;
-	font-weight:bold;
-	letter-spacing:0.05em;
-	text-transform:uppercase;
-	background:#00B98B;
-	text-align:center;
-	position:relative;
-}
-
-.button-container {
-	text-align:center;
-	margin:300px;
-}
-
-
-.button:hover {
-	opacity:0.8;
-}
-
-.button:before {
-	content:'';
-	display:block;
-	clear:both;
-	width:0;
-	height:0;
-	border-left:30px solid transparent;
-	border-bottom:60px solid #00B98B;
-	position:absolute;
-	top:0;
-	left:-30px;
-}
-.button:after {
-	content:'';
-	display:block;
-	clear:both;
-	width:0;
-	height:0;
-	border-right:30px solid transparent;
-	border-top:60px solid #00B98B;
-	position:absolute;
-	top:0;
-	right:-30px;
+.serch-container{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    align-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
 }
 
 @import './headers/header.scss';
 @import './footer/foote.scss';
+@import './button.scss'
