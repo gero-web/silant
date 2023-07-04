@@ -1,0 +1,19 @@
+.footer{
+    
+    display: flex;
+    background-color: $main_one;
+    align-items: center;
+    justify-content: space-around;
+    align-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    p{
+        color:white;
+        margin-right: 2vw;
+    }
+}
+
+.title_footer{
+    
+}
+

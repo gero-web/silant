@@ -80,6 +80,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'silant.wsgi.application'
 LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/accounts/login'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
@@ -144,3 +145,6 @@ STATICFILES_FINDERS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 DATE_INPUT_FORMATS = ['%d-%m-%Y']
+COMPRESS_PRECOMPILERS = (
+    ('text/x-scss', 'django_libsass.SassCompiler'),
+)
