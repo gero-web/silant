@@ -1,22 +1,56 @@
 {% extends 'root\base.html' %}
 
 {% block content %}
-<table>
-  {% for items in object_list %}
-      <tr>
-          <td>item.date_rejection</td>
-          <td>item.operating_time_mh</td>
-          <td>item.failure_node</td>
-          <td>item.failure_description</td>
-          <td>item.recovery_method</td>
-          <td>item.used_spare_parts</td>
-          <td>item.date_recovery</td>
-          <td>item.downtime</td>
-          <td>item.car</td>
-          <td>item.service_company</td>
+
+{% include 'root/search_and_text.html' %}
+
+{% if object_list %}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Дата отказа</th>
+      <th>Наработка, м/час</th>
+      <th>Узел отказа</th>
+      <th>Описание отказа</th>
+      <th>Способ восстановления</th>
+      <th>Используемые запасные части</th>
+      <th>Дата восстановления</th>
+      <th>Время простоя техники</th>
+      <th>Mашина</th>
+      <th>Cервисная компания</th>
+    </tr>
+  </thead>
+  {% for item in object_list %}
+      <tr onclick="javascript:location.href = '{{item.get_absolute_url}}'">
+          <td>{{item.date_rejection}}</td>
+          <td>{{item.operating_time_mh}}</td>
+          <td>{{item.failure_node}}</td>
+          <td>{{item.failure_description}}</td>
+          <td>{{item.recovery_method}}</td>
+          <td>{{item.used_spare_parts}}</td>
+          <td>{{item.date_recovery}}</td>
+          <td>{{item.downtime}}</td>
+          <td>{{item.car}}</td>
+          <td>{{item.service_company.name}}</td>
       </tr>
     {%empty%}
       No claims.
   {% endfor %}
 </table>
+  {% if page_obj.has_previous %}
+  <a href="?page={{ page_obj.previous_page_number }}">&laquo;</a>
+  {% endif %}
+
+  <span class="current">
+    Таблица {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}.
+  </span>
+  {% else %}
+  <h1>По указанному заводскому номеру информация не найдена</h1>
+  {% endif %}
+
+  {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}"> &raquo; </a>
+  {% endif %}
+ 
 {% endblock  %}

@@ -1,22 +1,51 @@
 {% extends 'root\base.html' %}
 
 {% block content %}
-<table>
-  {% for items in object_list %}
-      <tr>
-          <td>item.kind_technique_maintenance</td>
-          <td>item.date_holding_TO</td>
-          <td>item.operating_time_mh</td>
-          <td>item.dress_order_no</td>
-          <td>item.dress_order</td>
-          <td>item.organization_that_carried_TO</td>
-          <td>item.car</td>
-          <td>item.downtime</td>
-          <td>item.car</td>
-          <td>item.service_company</td>
+
+{% if object_list %}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Вид ТО</th>
+      <th>Дата проведения ТО</th>
+      <th>Наработка, м/час</th>
+      <th>№ заказ-наряда</th>
+      <th>Дата заказ-наряда</th>
+      <th>Организация, проводившая ТО</th>
+      <th>Машина</th>
+      <th>Сервисная компания</th>
+    </tr>
+  </thead>
+  {% for item in object_list %}
+      <tr onclick="javascript:location.href = '{{item.get_absolute_url}}'">
+          <td>{{item.kind_technique_maintenance}}</td>
+          <td>{{item.date_holding_TO}}</td>
+          <td>{{item.operating_time_mh}}</td>
+          <td>{{item.dress_order_no}}</td>
+          <td>{{item.dress_order}}</td>
+          <td>{{item.organization_that_carried_TO}}</td>
+          <td>{{item.car}}</td>
+          <td>{{item.service_company}}</td>
       </tr>
     {%empty%}
       No claims.
   {% endfor %}
 </table>
+  {% if page_obj.has_previous %}
+  <a href="?page={{ page_obj.previous_page_number }}">&laquo;</a>
+  {% endif %}
+
+  <span class="current">
+    Таблица {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}.
+  </span>
+  {% else %}
+  <h1>По указанному заводскому номеру информация не найдена</h1>
+  {% endif %}
+
+  {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}"> &raquo; </a>
+  {% endif %}
+
 {% endblock  %}
+ 

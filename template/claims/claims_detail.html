@@ -1,0 +1,48 @@
+{% extends 'root\base.html' %}
+
+{% block content %}
+<p>
+    <label >Дата отказа:</label>  
+    {{object.date_rejection}}
+</p>
+<p>
+    <label >Наработка, м/час:</label>  
+    {{object.operating_time_mh}}
+</p>
+<p>
+    <label >Узел отказа:</label>  
+    {{object.failure_node}}
+</p>
+<p>
+    <label >Узел отказа описание:</label>  
+    {{object.failure_node.description}}
+</p>
+<p>
+    <label >Описание отказа:</label>  
+    {{object.failure_description}}
+</p>
+<p>
+    <label >Способ восстановления:</label>  
+    {{object.recovery_method}}
+</p>
+<p>
+    <label >Используемые запасные части:</label>  
+    {{object.used_spare_parts}}
+</p>
+<p>
+    <label >Дата восстановления:</label>  
+    {{object.date_recovery}}
+</p>
+<p>
+    <label >Время простоя техники:</label>  
+    {{object.downtime}}
+</p>
+<p>
+    <label >Mашина:</label>  
+    {{object.car}}
+</p>
+<p>
+    <label >Cервисная компания:</label>  
+    {{object.service_company}}
+</p>
+{% endblock %}

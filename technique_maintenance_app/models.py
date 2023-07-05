@@ -31,7 +31,7 @@ class Technique_Maintenance(models.Model):
                                         related_name='technique_maintenance_service_company')
 
     def get_absolute_url(self):
-        return reverse("to-detail", kwargs={"pk": self.pk})
+        return reverse("technique_maintenance:to-detail", kwargs={"pk": self.pk})
 
     class Meta:
         ordering = ['-date_holding_TO']

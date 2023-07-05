@@ -1,0 +1,45 @@
+{% extends 'root\base.html' %}
+
+{% block content %}
+<p>
+    <label >Вид ТО:</label> 
+    {{object.kind_technique_maintenance}}
+</p> 
+<p>
+    <label >Вид ТО описание:</label> 
+    {{object.kind_technique_maintenance.description}}
+</p> 
+<p>
+    <label >Дата проведения ТО:</label> 
+    {{object.date_holding_TO}}
+</p> 
+<p>
+    <label >Наработка, м/час:</label> 
+    {{object.operating_time_mh}}
+</p> 
+<p>
+    <label >№ заказ-наряда:</label> 
+    {{object.dress_order_no}}
+</p> 
+<p>
+    <label >Дата заказ-наряда:</label> 
+    {{object.dress_order}}
+</p>
+<p>
+    <label >Организация, проводившая ТО:</label> 
+    {{object.organization_that_carried_TO}}
+</p>
+<p>
+    <label >Организация, проводившая ТО описание:</label> 
+    {{object.organization_that_carried_TO.description}}
+</p> 
+<p>
+    <label >Машина:</label> 
+    {{object.car}}
+</p>
+<p>
+    <label >Сервисная компания:</label> 
+    {{object.service_company}}
+</p>
+ 
+{% endblock %}

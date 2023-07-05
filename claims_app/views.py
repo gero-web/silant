@@ -16,6 +16,10 @@ class ClaimsCreateView(LoginRequiredMixin,CreateView):
     model = Claims
    # permission_required = 'Can add car'
 
+class ClaimsDetailView(LoginRequiredMixin, DetailView):
+    model = Claims
+    template_name ='claims\claims_detail.html'
+
 class RecoveryCreateView(LoginRequiredMixin,CreateView):
     template_name = 'root\create_dictionaryi.html'
     fields = '__all__'

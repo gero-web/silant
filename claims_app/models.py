@@ -43,7 +43,7 @@ class Claims(models.Model):
                                         related_name='claims_service_company')
 
     def get_absolute_url(self):
-        return reverse("claims-detail", kwargs={"pk": self.pk})
+        return reverse("claims:claims-detail", kwargs={"pk": self.pk})
 
     def __str__(self):
         return self.failure_description

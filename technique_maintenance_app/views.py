@@ -11,6 +11,9 @@ class TOListView(LoginRequiredMixin, ListView):
                                                           'organization_that_carried_TO','kind_technique_maintenance')
     template_name = 'technique_maintenance\TOList.html'
 
+class TODetail(LoginRequiredMixin, DetailView):
+    model = Technique_Maintenance
+    template_name = 'technique_maintenance\TO-detail.html'
 
 class TOCreateView(LoginRequiredMixin, CreateView):
     model = Technique_Maintenance
