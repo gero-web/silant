@@ -1,33 +1,104 @@
 {% extends 'root\base.html' %}
-{% load static %}
+
+
 {% block content %}
+{% include 'root/search_and_text.html' %}
 
-
-<table>
-  {% for items in object_list %}
-      <tr>
-          <td>item.head_machine_no</td>
-          <td>item.model_techique</td>
-          <td>item.model_engine</td>
-          <td>item.head_engine_no</td>
-          <td>item.model_transmission</td>
-          <td>item.head_transmission_no</td>
-          <td>item.model_drive_axle</td>
-          <td>item.head_drive_axle_no</td>
-          <td>item.model_steering_bridge</td>
-          <td>item.head_steering_bridge_no</td>
-          <td>item.deliver_contract_no</td>
+{% if object_list %}
+<table class="table">
+    <thead>
+        <th>
+          Зав. № машины
+        </th>
+        <th>
+          Модель техники
+        </th>
+        <th>
+          Модель двигателя
+        </th>
+        <th>
+          Зав. № двигателя
+        </th>
+        <th>
+           Модель трансмиссии
+        </th>
+        <th>
+          Зав. № трансмиссии
+       </th>
+       <th>
+          Модель ведущего моста
+       </th>
+       <th>
+        Зав. № ведущего моста
+      </th>
+      <th>
+        Модель управляемого моста
+      </th>
+      <th>
+        Зав. № управляемого моста
+      </th>
+      <th>
+        Номнер заказа
+      </th>
+      {% if user.is_authenticated %}
+        <th>
+          Дата отгрузки с завода
+        </th>
+        <th>
+          Покупатель
+        </th>
+        <th>
+          Грузополучатель
+        </th>
+        <th>
+          Адрес поставки
+        </th>
+        <th>
+          Комплектация
+        </th>
+        <th>
+          Сервисная компания
+        </th>
+      {% endif %}
+  </thead>
+  {% for item in object_list %}
+      <tr onclick="javascript:location.href = '{{item.get_absolute_url}}'">
+          <td>{{item.head_machine_no}}</td>
+          <td>{{item.model_techique.name}}</td>
+          <td>{{item.model_engine.name}}</td>
+          <td>{{item.head_engine_no}}</td>
+          <td>{{item.model_transmission}}</td>
+          <td>{{item.head_transmission_no}}</td>
+          <td>{{item.model_drive_axle.name}}</td>
+          <td>{{item.head_drive_axle_no}}</td>
+          <td>{{item.model_steering_bridge.name}}</td>
+          <td>{{item.head_steering_bridge_no}}</td>
+          <td>{{item.deliver_contract_no}}</td>
           {% if user.is_authenticated %}
-              <td>item.date_shipment</td>
-              <td>item.сonsignee</td>
-              <td>item.delivery_address</td>
-              <td>item.equipment</td>
-              <td>item.client</td>
-              <td>item.service_company</td>
+              <td>{{item.date_shipment}}</td>
+              <td>{{item.сonsignee}}</td>
+              <td>{{item.delivery_address}}</td>
+              <td>{{item.equipment}}</td>
+              <td>{{item.client.name}}</td>
+              <td>{{item.service_company.name}}</td>
           {% endif %}
       </tr>
-    {%empty%}
-      No cars.
+    
   {% endfor %}
 </table>
+  {% if page_obj.has_previous %}
+  <a href="?page={{ page_obj.previous_page_number }}">&laquo;</a>
+  {% endif %}
+  
+  <span class="current">
+    Таблица {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}.
+  </span>
+{% else %}
+  <h1>По указанному заводскому номеру информация не найдена</h1>
+{% endif %}
+
+  {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}"> &raquo; </a>
+  {% endif %}
+
 {% endblock  %}

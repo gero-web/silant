@@ -1,0 +1,31 @@
+{% load static %}
+<form method="get" >
+    <div class="serch-container">
+      <input type="text" placeholder="Введите заводской номер машины" name="q">
+      <div class="button-search">
+          <button  class="button"  type="submit"> Поиск </button>
+          <span    class="span" > <img src="{% static 'css/headers/logo.svg' %}" /></span>
+        </div>
+    </div>
+</form>
+<div class="main_text" >
+      <h1>Информация о комплектации и технических характеристиках Вашей техники</h1>
+      <div>
+        <div class="main-link-container">
+          <div>
+            <a href=""> Машины</a>
+          </div>
+          <div>
+            <a href=""> To</a>
+          </div>
+          <div>
+            <a href=""> Рекламация</a>
+          </div>
+        </div>
+      </div>
+      {% if user.is_authenticated %}
+        <p> {{user.username}} </p>
+     
+      {% endif %}
+</div>
+  

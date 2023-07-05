@@ -29,7 +29,7 @@ h1{
 
 }
 
-
+ 
 body{
     font-family: PT-Astra-Sans_Italic;
     color: $main_font_color;
@@ -42,7 +42,6 @@ body{
 
 p{
     font-family: PT-Astra-Sans_Regular;
-   
     color: $main_font_color;
 }
 
@@ -53,6 +52,7 @@ p{
     justify-content: space-between;
     align-items: center;
     flex-wrap: nowrap;
+    
 
     div{
         display: flex;
@@ -82,8 +82,13 @@ p{
 }
 
 .content{
-    margin: 0;
     padding: 0 1vw;
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: auto 1fr auto;
+    justify-items: stretch;
+    align-items: stretch;
+    align-content: stretch;
 }
 
 a{
@@ -104,15 +109,98 @@ a:visited{
     color:$main_two;
 }
 
-.serch-container{
+.login-container{
+    display: grid;
+    grid-template-rows: auto;
+    align-items: center;
+    justify-items: center;
+    justify-content: space-evenly;
+    align-content: center;
+    .login-button-container{
+        padding: 1vw 0;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        flex-wrap: nowrap;
+        justify-content: center;
+        flex-direction: row;
+    }
+
+    
+    input{
+        border-radius: .5%;
+        border: 1px solid $main_one;
+    }
+
+}
+.login-container:hover{
+    opacity: .8;
+}
+
+.main-link-container{
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    align-content: center;
+    justify-content: space-around;
+    align-content: flex-start;
     flex-wrap: nowrap;
     flex-direction: row;
+    min-height: 60px;
+    
+    a{
+        height: 2.3vw;
+        background-color: $main_two;
+        color: white;
+        font-family: PT-Astra-Sans_Italic;
+        position: absolute;
+    }
+
+    div{
+        position: relative;
+        display: inline-block;
+        padding: 1vw 0;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        flex-wrap: nowrap;
+        justify-content: center;
+        flex-direction: row;
+    }
+    
+   
+
+    a:before {
+        content:'';
+        display:block;
+        clear:both;
+        width:0;
+        height:0;
+        border-left: 2vw solid transparent;
+        border-bottom: 4.6vh solid $main_two;
+        position:absolute;
+        top:0;
+        left:-1.9vw;
+    }
+    a:after {
+        content:'';
+        display:block;
+        clear:both;
+        width:0;
+        height:0;
+        border-right:2vw solid transparent;
+        border-top:4.6vh solid $main_two;
+        position:absolute;
+        top:0;
+        right:-1.95vw;
+    }
+    
+    a:hover {
+        opacity: .8;
+    }
+
 }
 
 @import './headers/header.scss';
+@import './search/search.scss';
+@import './content/content.scss';
 @import './footer/foote.scss';
 @import './button.scss'

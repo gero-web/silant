@@ -11,11 +11,13 @@
     <div class="content">
 
     <header class="header">
-        <div class="header_row">    
-            <div class="logo">
-                <img src="{% static 'css/headers/logo.svg' %}" />
-                <img src="{% static 'css/headers/logo_text.svg' %}" />
-            </div>
+        <div class="header_row">
+            <a href="{% url 'car:car_list' %}">
+                <div class="logo">
+                    <img src="{% static 'css/headers/logo.svg' %}" />
+                    <img src="{% static 'css/headers/logo_text.svg' %}" />
+                </div>
+            </a>    
             <div class="contact">
                 <div> 
                     <p>+7-8352-20-12-09</p>
@@ -38,18 +40,12 @@
         </div>
     </header>
     <main>
-        <form method="get" >
-            <div class="serch-container">
-              <input type="text" name="q">
-              <div class="button-search">
-                  <button  class="button"  type="submit"> Нажми мну </button>
-                  <span    class="span" > <img src="{% static 'css/headers/logo.svg' %}" /></span>
-                </div>
-            </div>
-        </form>
-        {% block content %}
-        
-        {% endblock   %}
+     
+        <div class="main-container">
+            {% block content %} 
+            {% endblock   %}
+            
+        </div>
     </main>
     <footer class="footer">
         <div class="contact">

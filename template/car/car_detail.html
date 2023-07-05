@@ -1,6 +1,92 @@
-{% extends "base_generic.html" %}
+{% extends 'root\base.html' %}
 
 {% block content %}
+<p>
+    <label >Заводской номер машины:</label>   
+    {{object.head_machine_no}}
+ </p>
+<p>
+    <label > Модель техники:</label>  
+    {{object.model_techique.name}}
+</p>
+<p>
+    <label >Описание техники:</label>  
+    {{object.model_techique.description}}
+</p>
+<p>
+    <label > Зав. № двигателя:</label>  
+    {{object.head_engine_no}}
+</p>
+<p>
+    <label >Модель двигателя:</label>  
+    {{object.model_engine.name}}
+</p>
+<p> <label >Описание двигателя:</label>  
+    {{object.model_engine.description}}
+</p>
+<p>
+    <label >Модель трансмиссии:</label>  
+    {{object.model_transmission}}
+</p>
+<p>
+    <label >Описание трансмиссии:</label>  
+    {{object.model_transmission.description}}
+</p>
+<p> <label >Зав. № трансмиссии:</label>  
+    {{object.head_transmission_no}}
+</p>
+<p>
+    <label > Описание ведущего моста:</label>  
+    {{object.model_drive_axle.description}}
+</p>
+<p> <label > Модель ведущего моста:</label>  
+    {{object.model_drive_axle.name}}
+</p>
+<p>
+    <label >Зав. № ведущего моста:</label>  
+    {{object.head_drive_axle_no}}
+</p>
+<p>
+    <label > Модель управляемого моста:</label>  
+    {{object.model_steering_bridge.name}}
+</p>
+<p>
+    <label >Зав. № управляемого моста:</label>  
+    {{object.head_steering_bridge_no}}
+</p>
+<p>
+    <label >Описание моста:</label>  
+    {{object.head_steering_bridge_no.description}}
+</p>
+<p>
+    <label >Номнер заказа:</label>  
+    {{object.deliver_contract_no}}
+</p>
+{% if user.is_authenticated %}
+    <p>
+        <label >Дата отгрузки с завода:</label>  
+        {{object.date_shipment}}
+    </p>
+    <p>
+        <label >рузополучатель:</label>  
+        {{object.сonsignee}}
+    </p>
+    <p> <label > Адрес поставки:</label>  
+        {{object.delivery_address}}
+    </p>
+    <p>
+        <label> Комплектация:</label>  
+        {{object.equipment}}
+    </p>
+    <p>
+        <label >Покупатель:</label>  
+        {{object.client.name}}
+    </p>
+    <p>
+        <label >Сервисная компания:</label>  
+        {{object.service_company.name}}
+    </p>
+{% endif %}
 
 
 {% endblock %}

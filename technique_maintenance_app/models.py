@@ -3,14 +3,14 @@ from django.urls import reverse
 from car_app.models import Car, Service_Company
 
 class Kind_Technique_Maintenance(models.Model):
-    name = models.CharField()
+    name = models.CharField(max_length=255)
     description = models.TextField()
 
     def __str__(self):
         return self.name
 
 class Organization_Tat_Carried_Out(models.Model):
-    name = models.CharField()
+    name = models.CharField(max_length=255)
     description = models.TextField()
 
     def __str__(self):
@@ -21,7 +21,7 @@ class Technique_Maintenance(models.Model):
                                                    related_name='kind_TO')
     date_holding_TO = models.DateField()
     operating_time_mh = models.PositiveIntegerField()
-    dress_order_no = models.CharField()
+    dress_order_no = models.CharField(max_length=255)
     dress_order = models.DateField()
     organization_that_carried_TO = models.ForeignKey(to=Organization_Tat_Carried_Out, on_delete=models.CASCADE, \
                                                    related_name='TO_organization_that_carried')

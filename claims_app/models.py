@@ -5,7 +5,7 @@ from car_app.models import Car, Service_Company
 
 
 class Failure_Node(models.Model):
-    name = models.CharField()
+    name = models.CharField(max_length=255)
     description = models.TextField()
 
     def __str__(self):
@@ -13,7 +13,7 @@ class Failure_Node(models.Model):
 
 
 class Recovery_Method(models.Model):
-    name = models.CharField()
+    name = models.CharField(max_length=255)
     description = models.TextField()
 
     def __str__(self):
@@ -25,12 +25,13 @@ def validate_date_recovery(date_recovery, date_rejection):
         return True
     else:
         raise ValidationError('The date of failure is greater than the date of restoration')
+    
 class Claims(models.Model):
     date_rejection = models.DateField()
     operating_time_mh = models.PositiveIntegerField()
     failure_node = models.ForeignKey(to=Failure_Node, on_delete=models.CASCADE, \
                                      related_name='claims_fluire_node')
-    failure_description = models.CharField()
+    failure_description = models.CharField(max_length=255)
     recovery_method = models.ForeignKey(to=Recovery_Method, on_delete=models.CASCADE, \
                                         related_name='claims_recovery_method')
     used_spare_parts = models.TextField()

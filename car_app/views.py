@@ -7,26 +7,17 @@ from django.db.models import Q
 
 # Create your views here.
 class CarListView(ListView):
-    paginate_by = 50
+    paginate_by = 3
     template_name = 'car\carList.html'
     model = Car
-
+    
     def get_queryset(self):
       t = self.request.GET.getlist('q', '')
 
-      print( Service_Company.objects.filter(Q(name__in=t)))
-      if not self.request.user.is_authenticated:
-            self.queryset =  Car.objects.all().select_related('model_steering_bridge','model_drive_axle',\
-                                                'model_transmission','model_engine', 'model_techique' ).\
-                                    values('head_machine_no', \
-                                            'model_techique', 'model_engine', 'head_engine_no',
-                                            'model_transmission',  'head_transmission_no',\
-                                            'model_drive_axle', 'head_drive_axle_no',\
-                                            'model_steering_bridge', 'head_steering_bridge_no' )
-      else:
-          self.queryset = Car.objects.all().select_related('client', 'service_company', 'model_steering_bridge', \
+      self.queryset =   Car.objects.select_related('client', 'service_company', 'model_steering_bridge', \
                                                       'model_drive_axle', 'model_transmission', 'model_engine', \
-                                                      'model_techique', )
+                                                      'model_techique', ).filter(head_machine_no__in=t)
+      
       return  super(CarListView, self).get_queryset()
 
 
@@ -41,7 +32,7 @@ class CarCreateView(LoginRequiredMixin,CreateView):
 class CarDetail(DetailView):
     model = Car
     context_object_name = 'car'
-    template_name ='car\car-detail.html'
+    template_name ='car\car_detail.html'
 
 
 class Service_CompanyCreateView(LoginRequiredMixin,CreateView):
