@@ -1,5 +1,6 @@
 {% load static %}
 <form method="get" >
+  {% if not user.is_authenticated %}
     <div class="serch-container">
       <input type="text" placeholder="Введите заводской номер машины" name="q">
       <div class="button-search">
@@ -7,25 +8,34 @@
           <span    class="span" > <img src="{% static 'css/headers/logo.svg' %}" /></span>
         </div>
     </div>
+    {% endif %}
+    {% if user.is_authenticated %}
+      <div class="filter-container">
+        {{formFilter.as_table}}
+        <div class="button-search">
+          <button  class="button"  type="submit"> Фильтер </button>
+          <span    class="span" > <img src="{% static 'css/headers/logo.svg' %}" /></span>
+        </div>
+      </div>
+    {% endif %}
 </form>
+{% if user.is_authenticated %}
 <div class="main_text" >
       <h1>Информация о комплектации и технических характеристиках Вашей техники</h1>
       <div>
         <div class="main-link-container">
           <div>
-            <a href=""> Машины</a>
+            <a href='{% url "car:car_list" %} '> Машины</a>
           </div>
           <div>
-            <a href=""> To</a>
+            <a href="{% url 'technique_maintenance:to_list' %}"> To </a>
           </div>
           <div>
-            <a href=""> Рекламация</a>
+            <a href="{% url 'claims:claims_list' %}"> Рекламация </a>
           </div>
         </div>
       </div>
-      {% if user.is_authenticated %}
         <p> {{user.username}} </p>
-     
-      {% endif %}
-</div>
+      </div>
+{% endif %}
   

@@ -199,6 +199,24 @@ a:visited{
 
 }
 
+.filter-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: flex-start;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    margin: 1vh 0;
+    input{
+        border-radius: .2%;
+        width: 60vw;
+        height: 4.3vh;
+        margin-right: -2%;
+        border: 2px solid $main_one;
+        padding-right: 2%;
+    }
+}
+
 @import './headers/header.scss';
 @import './search/search.scss';
 @import './content/content.scss';

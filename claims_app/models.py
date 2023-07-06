@@ -21,6 +21,8 @@ class Recovery_Method(models.Model):
 
 
 def validate_date_recovery(date_recovery, date_rejection):
+    if date_recovery is None or date_rejection is None:
+        return True
     if date_recovery > date_rejection:
         return True
     else:

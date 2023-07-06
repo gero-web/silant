@@ -1,8 +1,9 @@
 from django.contrib import admin
 from django.urls import path
 from claims_app.views import RecoveryCreateView,FailureCreateView, ClaimsDetailView ,ClaimsListView, ClaimsCreateView
-app_name='claims'
 
+
+app_name='claims'
 urlpatterns = [
     path('', ClaimsListView.as_view(), name='claims_list'),
     path('claims-detail/<int:pk>', ClaimsDetailView.as_view(), name='claims-detail'),
