@@ -69,19 +69,19 @@ class ClaimsUpdateView(LoginRequiredMixin, CheckPremGroupMexin,UpdateView):
     template_name = 'claims\claims_create.html'
     fields = '__all__'
     model = Claims
-    group = ['service_organization', 'manager', ]
+    group = ['manager', ]
    # permission_required = 'Can add car'
 
 class RecoveryUpdateView(LoginRequiredMixin,CheckPremGroupMexin,UpdateView):
     template_name = 'root\create_dictionaryi.html'
     fields = '__all__'
     model = Recovery_Method
-    group = ['service_organization', 'manager', ]
+    group = ['manager', ]
    # permission_required = 'Can add car'
 
 class FailureUpdateView(LoginRequiredMixin,CheckPremGroupMexin,UpdateView):
     template_name = 'root\create_dictionaryi.html'
     fields = '__all__'
     model = Failure_Node
-    group = ['service_organization', 'manager', ]
+    group = ['manager', ]
    # permission_required = 'Can add car'

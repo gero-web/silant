@@ -68,18 +68,18 @@ class OrganizationCarriedOutCreateView(LoginRequiredMixin,CheckPremGroupMexin, C
 class TOUpdateView(LoginRequiredMixin, CheckPremGroupMexin ,UpdateView):
     model = Technique_Maintenance
     template_name = 'technique_maintenance\TO_create.html'
-    group = ['client', 'service_organization', 'manager', ]
+    group = [ 'manager', ]
     fields = '__all__'
 
 class KindToUpdateView(LoginRequiredMixin,CheckPremGroupMexin, UpdateView):
     model = Kind_Technique_Maintenance
     fields = '__all__'
     template_name = 'root\create_dictionaryi.html'
-    group = ['client', 'service_organization', 'manager', ]
+    group = ['manager', ]
 
 class OrganizationCarriedOutUpdateView(LoginRequiredMixin,CheckPremGroupMexin, UpdateView):
     model = Organization_Tat_Carried_Out
     fields = '__all__'
-    group = ['client', 'service_organization', 'manager', ]
+    group = ['manager', ]
     template_name = 'root\create_dictionaryi.html'
 
