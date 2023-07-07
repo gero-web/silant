@@ -29,8 +29,9 @@ class ClaimsListView(LoginRequiredMixin,ListView):
             filters = form.cleaned_data
             q = get_filters(filters) 
         qu = Q()
-        qu |= Q(('car__client__name__contains', user.username))
-        qu |= Q(('service_company__name__contains', user.username)) 
+        if not user.groups.filter(name='manager').exists():
+            qu |= Q(('car__client__name__contains', user.username))
+            qu |= Q(('service_company__name__contains', user.username)) 
         q &= qu
         self.queryset = Claims.objects.select_related('car', 'service_company','recovery_method', 'failure_node').filter(q)
          

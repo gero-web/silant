@@ -7,7 +7,7 @@ button{
 .button {
 	display: flex;
     vertical-align: top;
-    padding: 0 2vw;
+    padding: 0 2vh;
     padding-left: .5vw;
     padding-top: -1%;
     padding-bottom: 1%;
@@ -16,7 +16,7 @@ button{
     font-family: PT-Astra-Sans_Bold-Italic;
     font-size: 14px;
     line-height: 60px;
-    height: 5vh;
+    height:38.39px;
     text-transform: uppercase;
     background-color: $main_one;
     position: relative;
@@ -43,11 +43,11 @@ button{
 	clear:both;
 	width:0;
 	height:0;
-    border-left:2.1vw solid transparent;
-	border-bottom:5vh solid $main_one;
+    border-left:38.39px solid transparent;
+	border-bottom:38.39px solid $main_one;
 	position:absolute;
 	top:0;
-	left:-2.0vw;
+	left:-38px;
 }
 .button:after {
 	content:'';
@@ -55,11 +55,11 @@ button{
 	clear:both;
 	width:0;
 	height:0;
-    border-right:2vw solid transparent;
-	border-top:5.3vh solid $main_one;
+    border-right:38.39px solid transparent;
+	border-top:38.39px solid $main_one;
 	position:absolute;
 	top:0;
-	right:-1.8vw;
+	right:-38px;
 }
 
 .span {
@@ -69,7 +69,7 @@ button{
 	text-align:center;
 	position:relative;
    
-    height: 5.1vh;
+    height: 38.39px;
     margin-right: 1vw;
     img{
         width: 100%;
@@ -85,11 +85,11 @@ button{
 	clear:both;
 	width:0;
 	height:0;
-	border-left:2.1vw solid transparent;
-	border-bottom:5.2vh solid $main_two;
+	border-left:38.39px solid transparent;
+	border-bottom:38.39px solid $main_two;
 	position:absolute;
 	top:0;
-	left:-2.0vw;
+	left: -38.39px;
 }
 .span:after {
 	content:'';
@@ -97,9 +97,9 @@ button{
 	clear:both;
 	width:0;
 	height:0;
-	border-right:2vw solid transparent;
-	border-top:5.5vh solid $main_two;
+	border-right:38.39px solid transparent;
+	border-top:38.39px solid $main_two;
 	position:absolute;
 	top:0;
-	right:-1.8vw;
+	right: -38px;
 }

@@ -87,7 +87,7 @@
         {{object.service_company.name}}
     </p>
     {% if user|has_group:'manager' %}
-        <div>
+        <div class="container-detail-link">
              
             <a href="{% url 'car:technique_update' pk=object.model_techique.pk %}">
                 Редактировать  модель техники

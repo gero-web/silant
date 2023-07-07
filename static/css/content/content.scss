@@ -5,7 +5,7 @@
     align-items: stretch;
     align-content: flex-end;
     flex-wrap: nowrap;
-    margin: 1vh 10%;
+    margin: 1vh 2%;
     // background-image: url('logo.jpg') ;
     background-clip: content-box;
     background-position: center;
@@ -20,6 +20,16 @@
 	margin-bottom: 20px;
 	border: 1px solid $backgraound_color;
 	border-collapse: collapse; 
+    
+    a {
+        color: $main_font_color;
+        font-weight: 500;
+        font-size: medium;
+    }
+
+    a:hover{
+        color: $backgraound_color;
+    }
 }
 .table th {
 	font-weight: bold;
@@ -29,7 +39,9 @@
 }
 .table td {
 	border: 1px solid $main_one;
-	padding: 5px;
+	 
+    
+    width: fit-content;
 }
 
 .table tr:nth-child(2n){
@@ -52,9 +64,68 @@
      
 }
 
-.main_text{
-    
+.creation_diconary{
+    display: grid;
+    grid-template-columns: 20vw 20vw 20vw;
+    background-color: $main_two;
+    -webkit-transform: skewX(-15deg);
+    -moz-transform: skewX(-15deg);
+    -ms-transform: skewX(-15deg);
+    -o-transform: skewX(-15deg);
+    transform: skewX(-15deg);
+    justify-items: stretch;
+    align-items: start;
+    justify-content: space-around;
+    align-content: space-around;
+    background-image:  url('/static/css/headers/logo.svg') ;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+   
+    a {
+        font-family:  PT-Astra-Sans_Italic;
+        color:white;
+        font-size: 2vw;
+        font-weight: 400;
+    } 
+
+    a:hover{
+        color: $backgraound_color;
+        opacity: .8;
+    }
+
 }
 
 
+.container-detail-link{
+    display: grid;
+    grid-template-columns: 20vw 20vw 20vw;
+    background-color: $main_two;
+    -webkit-transform: skewX(-15deg);
+    -moz-transform: skewX(-15deg);
+    -ms-transform: skewX(-15deg);
+    -o-transform: skewX(-15deg);
+    transform: skewX(-15deg);
+    justify-items: stretch;
+    align-items: start;
+    justify-content: space-around;
+    align-content: space-around;
+    background-image:  url('/static/css/headers/logo.svg') ;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+   
+    a {
+        font-family:  PT-Astra-Sans_Italic;
+        color:white;
+        font-size: 2vw;
+        font-weight: 400;
+    } 
+
+    a:hover{
+        color: $backgraound_color;
+        opacity: .8;
+    }
+
+}
  

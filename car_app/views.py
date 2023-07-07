@@ -35,8 +35,10 @@ class CarListView( ListView):
             filters = form.cleaned_data
             q = get_filters(filters) 
         qu = Q()
-        qu |= Q(('client__name__contains', user.username))
-        qu |= Q(('service_company__name__contains', user.username))
+        
+        if not user.groups.filter(name='manager').exists():
+            qu |= Q(('client__name__contains', user.username))
+            qu |= Q(('service_company__name__contains', user.username))
         q &= qu
         self.queryset =  Car.objects.select_related('client', 'service_company', 'model_steering_bridge', \
                                                       'model_drive_axle', 'model_transmission', 'model_engine', \

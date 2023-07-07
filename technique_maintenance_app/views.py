@@ -31,8 +31,9 @@ class TOListView(LoginRequiredMixin, ListView):
             filters = form.cleaned_data
             q = get_filters(filters) 
         qu = Q()
-        qu |= Q(('car__client__name__contains', user.username))
-        qu |= Q(('service_company__name__contains', user.username)) 
+        if not user.groups.filter(name='manager').exists():
+            qu |= Q(('car__client__name__contains', user.username))
+            qu |= Q(('service_company__name__contains', user.username)) 
         q &= qu
         self.queryset = Technique_Maintenance.objects.select_related('service_company','car',\
                                                           'organization_that_carried_TO','kind_technique_maintenance').\

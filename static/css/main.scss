@@ -144,26 +144,27 @@ a:visited{
     align-content: flex-start;
     flex-wrap: nowrap;
     flex-direction: row;
-    min-height: 60px;
-    
+    margin-top: 4vh;
+   
     a{
-        height: 2.3vw;
+        height: 38.39px;
         background-color: $main_two;
         color: white;
         font-family: PT-Astra-Sans_Italic;
         position: absolute;
+        
     }
 
     div{
         position: relative;
-        display: inline-block;
-        padding: 1vw 0;
+        height: 38.39px;
         display: flex;
         align-items: center;
         align-content: center;
         flex-wrap: nowrap;
         justify-content: center;
         flex-direction: row;
+        
     }
     
    
@@ -174,11 +175,11 @@ a:visited{
         clear:both;
         width:0;
         height:0;
-        border-left: 2vw solid transparent;
-        border-bottom: 4.6vh solid $main_two;
+        border-left: 38.39px solid transparent;
+        border-bottom: 38.39px solid $main_two;
         position:absolute;
         top:0;
-        left:-1.9vw;
+        left:-38px;
     }
     a:after {
         content:'';
@@ -186,11 +187,11 @@ a:visited{
         clear:both;
         width:0;
         height:0;
-        border-right:2vw solid transparent;
-        border-top:4.6vh solid $main_two;
+        border-right:38.39px solid transparent;
+        border-top:38.39px solid $main_two;
         position:absolute;
         top:0;
-        right:-1.95vw;
+        right:-38px;
     }
     
     a:hover {
@@ -200,18 +201,21 @@ a:visited{
 }
 
 .filter-container{
+    
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     align-content: flex-start;
     flex-wrap: nowrap;
     flex-direction: row;
-    margin: 1vh 0;
-    input{
+   
+
+    select{
         border-radius: .2%;
-        width: 60vw;
-        height: 4.3vh;
-        margin-right: -2%;
+        margin: 2vh 1vw;
+        font-weight: 400;
+        font-family: PT-Astra-Sans_Italic;
+        font-size: medium;
         border: 2px solid $main_one;
         padding-right: 2%;
     }
@@ -223,7 +227,8 @@ a:visited{
     }
     
 }
- 
+
+
 
 @import './headers/header.scss';
 @import './search/search.scss';

@@ -53,11 +53,11 @@
 </p>
 
 {% if user|has_group:'manager' %}
-            <div>
-                <a href="{% url 'claims:update_failure' pk=object.failure_node.pk %}">
+            <div class="container-detail-link">
+                <a href="{% url 'claims:claims_update_failure' pk=object.failure_node.pk %}">
                     Редактировать узел отказа
                 </a>
-                <a href="{% url 'claims:recovery_update' pk=object.failure_node.pk %}">
+                <a href="{% url 'claims:claims_update_recovery' pk=object.recovery_method.pk %}">
                     Редактировать  метод восстановления
                 </a>
                 <a href="{% url 'claims:claims_update' pk=object.pk %}">

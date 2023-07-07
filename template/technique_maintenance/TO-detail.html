@@ -42,7 +42,8 @@
     {{object.service_company}}
 </p>
 {% if user|has_group:'manager' %}
-<div>
+
+<div class="container-detail-link">
     <a href="{% url 'technique_maintenance:to_upate_carried_out' pk=object.organization_that_carried_TO.pk %}">
         Редактировать  организацию, которая провела то
     </a>

@@ -1,7 +1,7 @@
 {% extends 'root\base.html' %}
 
 {% block content %}
-
+{% load has_group %}
 {% include 'root/search_and_text.html' %}
 
 {% if user|has_group:'service_organization manager' %}
@@ -12,8 +12,7 @@
 </div>
 {%endif%}
 
-
-
+ 
 {% if object_list %}
 <table class="table">
   <thead>
@@ -48,13 +47,12 @@
           <td>{{item.car}}</td>
           <td>{{item.service_company.name}}</td>
           {% if user|has_group:'service_organization manager' %} 
-          <td>
-              <a class="update_item" href="{% url 'claims:claims_update' pk=item.pk %}">
-                Изменить
-              </a>
-          </td>
-          {%endif%}
-      {% endif %}
+            <td>
+                <a class="update_item" href="{% url 'claims:claims_update' pk=item.pk %}">
+                  Изменить
+                </a>
+            </td>
+          {%endif%}   
       </tr>
     {%empty%}
       No claims.
@@ -74,5 +72,4 @@
   {% if page_obj.has_next %}
     <a href="?page={{ page_obj.next_page_number }}"> &raquo; </a>
   {% endif %}
- 
 {% endblock  %}

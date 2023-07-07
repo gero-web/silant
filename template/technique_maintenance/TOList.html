@@ -1,9 +1,10 @@
 {% extends 'root\base.html' %}
-
+{% load has_group %}
 {% block content %}
 
 {% include 'root/search_and_text.html' %}
-{% if user|has_group:'service_organization manager' %}
+
+{% if user|has_group:'service_organization manager client' %}
 <div>
   <a href="{% url 'technique_maintenance:to_create' %}">
     Добавить
@@ -26,11 +27,11 @@
       <th>Организация, проводившая ТО</th>
       <th>Машина</th>
       <th>Сервисная компания</th>
-      {% if user|has_group:'client service_organization manager' %}
-      <th>
-        Редоктировать
-      </th>
-    {% endif %}
+      {% if user|has_group:'client service_organization manager client' %}
+        <th>
+          Редоктировать
+        </th>
+      {% endif %}
     </tr>
   </thead>
   {% for item in object_list %}
@@ -43,14 +44,14 @@
           <td>{{item.organization_that_carried_TO}}</td>
           <td>{{item.car}}</td>
           <td>{{item.service_company}}</td>
-          {% if user|has_group:'client service_organization manager' %} 
+          {% if user|has_group:'client service_organization manager client' %} 
             <td>
                 <a class="update_item" href="{% url 'technique_maintenance:to-update' pk=item.pk %}">
                   Изменить
                 </a>
             </td>
-          {%endif%}
-      {% endif %}
+         
+          {% endif %}
       </tr>
     {%empty%}
       No claims.

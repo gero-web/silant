@@ -22,8 +22,8 @@
     {% endif %}
 </form>
 {% if user.is_authenticated %}
-<div class="creation_diconary">
-  <div>
+<div >
+  <div class="creation_diconary">
     {% if user|has_group:'manager' %}
     
     <a href="{% url 'car:technique' %}">
