@@ -1,4 +1,6 @@
 {% load static %}
+{% load has_group %}
+
 <form method="get" >
   {% if not user.is_authenticated %}
     <div class="serch-container">
@@ -20,6 +22,52 @@
     {% endif %}
 </form>
 {% if user.is_authenticated %}
+<div class="creation_diconary">
+  <div>
+    {% if user|has_group:'manager' %}
+    
+    <a href="{% url 'car:technique' %}">
+      Добавить модель техники
+    </a>
+    <a href="{% url 'car:engine' %}">
+      Добавить модель двигателя
+    </a>
+    <a href="{% url 'car:transmission' %}">
+      Добавить модель трансмиссии
+    </a>
+    <a href="{% url 'car:drive_axle' %}">
+      Добавить модель ведущего моста
+    </a>
+    <a href="{% url 'car:steering_bridge' %}">
+      Добавить модель управляемого моста
+    </a>
+    <a href="{% url 'car:client' %}">
+      Добавить  клиента
+    </a>
+    <a href="{% url 'car:service_company' %}">
+      Добавить  сервисную компанию
+    </a>
+    {%endif%}
+    {% if user|has_group:'manager service_organization' %}
+      <a href="{% url 'claims:claims_create_recovery' %}">
+        Добавить  метод востановления
+      </a>
+      <a href="{% url 'claims:claims_create_failure' %}">
+        Добавить  узел отказа
+      </a>
+    {%endif%}
+    {% if user|has_group:'manager service_organization client' %}
+      <a href="{% url 'technique_maintenance:to_create_knid' %}">
+        Добавить  вид то
+      </a>
+      <a href="{% url 'technique_maintenance:to_create_carried_out' %}">
+        Добавить  организацию проводящию ТО 
+      </a>
+    {%endif%}
+    
+  </div>
+</div>
+
 <div class="main_text" >
       <h1>Информация о комплектации и технических характеристиках Вашей техники</h1>
       <div>

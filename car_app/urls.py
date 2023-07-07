@@ -2,7 +2,9 @@ from django.contrib import admin
 from django.urls import path
 from car_app.views import CarListView, CarDetail,CarCreateView,Service_CompanyCreateView,ClientCreateView,\
                           ModelSteeringBridgeCreateView,ModelDriveAxleCreateView,ModelTransmissionCreateView,\
-                          ModelEngineCreateView,ModelTechniqueCraeteView
+                          ModelEngineCreateView,ModelTechniqueCraeteView,CarUpdateView,Service_CompanyUpdateView,\
+                          ClientUpdateView,ModelSteeringBridgeUpdateView,ModelDriveAxleUpdateView,ModelTransmissionUpdateView,\
+                          ModelEngineUpdateView,ModelTechniqueCraeteView
 
 app_name='car'
 
@@ -17,5 +19,12 @@ urlpatterns = [
     path('create_transmission', ModelTransmissionCreateView.as_view(), name='transmission'),
     path('create_engine', ModelEngineCreateView.as_view(), name='engine'),
     path('create_technique', ModelTechniqueCraeteView.as_view(), name='technique'),
-
+    path('update_car\<int:pk>', CarUpdateView.as_view(), name='car_update'),
+    path('update_service_company\<int:pk>', Service_CompanyUpdateView.as_view(), name='service_company_update'),
+    path('update_client\<int:pk>', ClientUpdateView.as_view(), name='client_update'),
+    path('update_steering_bridge\<int:pk>', ModelSteeringBridgeUpdateView.as_view(), name='steering_bridge_update'),
+    path('update_drive_axle\<int:pk>', ModelDriveAxleUpdateView.as_view(), name='drive_axle_update'),
+    path('update_transmission\<int:pk>', ModelTransmissionUpdateView.as_view(), name='transmission_update'),
+    path('update_engine\<int:pk>', ModelEngineUpdateView.as_view(), name='engine_update'),
+    path('update_technique\<int:pk>', ModelTechniqueCraeteView.as_view(), name='technique_update'),
 ]

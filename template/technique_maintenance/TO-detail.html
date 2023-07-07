@@ -1,5 +1,5 @@
 {% extends 'root\base.html' %}
-
+{% load has_group %}
 {% block content %}
 <p>
     <label >Вид ТО:</label> 
@@ -41,5 +41,17 @@
     <label >Сервисная компания:</label> 
     {{object.service_company}}
 </p>
- 
+{% if user|has_group:'manager' %}
+<div>
+    <a href="{% url 'technique_maintenance:to_upate_carried_out' pk=object.organization_that_carried_TO.pk %}">
+        Редактировать  организацию, которая провела то
+    </a>
+    <a href="{% url 'technique_maintenance:to_update_knid' pk=object.kind_technique_maintenance.pk %}">
+        Редактировать  вид ТО
+    </a>
+    <a href="{% url 'technique_maintenance:to-update' pk=object.pk %}">
+        Редактировать  ТО
+    </a>
+</div>
+{%endif%}
 {% endblock %}

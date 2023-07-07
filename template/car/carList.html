@@ -1,8 +1,17 @@
 {% extends 'root\base.html' %}
-
-
+{% load has_group %}
 {% block content %}
 {% include 'root/search_and_text.html' %}
+
+{% if user|has_group:'manager' %}
+<div>
+  <a href="{% url 'car:car_add' %}">
+    Добавить
+  </a>
+</div>
+{%endif%}
+
+
 
 {% if object_list %}
 <table class="table">
@@ -59,6 +68,11 @@
         <th>
           Сервисная компания
         </th>
+        {% if user|has_group:'manager' %}
+          <th>
+            Редоктировать
+          </th>
+        {% endif %}
       {% endif %}
   </thead>
   {% for item in object_list %}
@@ -81,6 +95,13 @@
               <td>{{item.equipment}}</td>
               <td>{{item.client.name}}</td>
               <td>{{item.service_company.name}}</td>
+              {% if user|has_group:'manager' %} 
+              <td>
+                  <a class="update_item" href="{% url 'car:car_update' pk=item.pk %}">
+                    Изменить
+                  </a>
+              </td>
+              {%endif%}
           {% endif %}
       </tr>
     

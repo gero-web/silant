@@ -1,0 +1,6 @@
+{% extends 'root/base.html' %}
+
+{% block content %}
+    <h1> {{exception}} </h1>
+    <a href="{{request.META.HTTP_REFERER}}">  Назад!</a>
+{% endblock %}

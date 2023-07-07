@@ -217,6 +217,14 @@ a:visited{
     }
 }
 
+.update_item{
+    a{
+        font-size: small;
+    }
+    
+}
+ 
+
 @import './headers/header.scss';
 @import './search/search.scss';
 @import './content/content.scss';

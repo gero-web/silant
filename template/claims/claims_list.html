@@ -4,8 +4,17 @@
 
 {% include 'root/search_and_text.html' %}
 
-{% if object_list %}
+{% if user|has_group:'service_organization manager' %}
+<div>
+  <a href="{% url 'claims:claims_create' %}">
+    Добавить
+  </a>
+</div>
+{%endif%}
 
+
+
+{% if object_list %}
 <table class="table">
   <thead>
     <tr>
@@ -19,6 +28,11 @@
       <th>Время простоя техники</th>
       <th>Mашина</th>
       <th>Cервисная компания</th>
+      {% if user|has_group:'service_organization manager' %}
+      <th>
+        Редоктировать
+      </th>
+    {% endif %}
     </tr>
   </thead>
   {% for item in object_list %}
@@ -33,6 +47,14 @@
           <td>{{item.downtime}}</td>
           <td>{{item.car}}</td>
           <td>{{item.service_company.name}}</td>
+          {% if user|has_group:'service_organization manager' %} 
+          <td>
+              <a class="update_item" href="{% url 'claims:claims_update' pk=item.pk %}">
+                Изменить
+              </a>
+          </td>
+          {%endif%}
+      {% endif %}
       </tr>
     {%empty%}
       No claims.

@@ -1,19 +1,23 @@
 from typing import Any, Dict
 from django.shortcuts import render
 from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin
-from django.views.generic import  ListView,CreateView,DetailView
+from django.views.generic import  ListView,CreateView,DetailView, UpdateView
 from car_app.models import Car,Service_Company,Client,Model_Steering_Bridge,Model_Drive_Axle,Model_Transmission, \
                            Model_Engine,Model_Technique
 from silant.utils.getFilters import get_filters
 from car_app.forms.form_filter import FromFilter
 from django.forms import ModelForm
 from django.db.models import Q
+from silant.utils.check_group import CheckPremGroupMexin
+
 
 # Create your views here.
-class CarListView(ListView):
+class CarListView( ListView):
+    
     paginate_by = 3
     template_name = 'car\carList.html'
     model = Car
+    
     def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
         form:ModelForm = FromFilter()
         context = super().get_context_data(**kwargs)
@@ -46,58 +50,125 @@ class CarListView(ListView):
 
 
 
-class CarCreateView(LoginRequiredMixin,CreateView):
+class CarCreateView(LoginRequiredMixin, CheckPremGroupMexin ,CreateView):
     template_name = 'car\carCreate.html'
     fields = '__all__'
     model = Car
     success_url = '/'
+    group = ['manager']
    # permission_required = 'Can add car'
 
 class CarDetail(DetailView):
     model = Car
     context_object_name = 'car'
     template_name ='car\car_detail.html'
+    group = ['manager']
 
 
-class Service_CompanyCreateView(LoginRequiredMixin,CreateView):
+class CarUpdateView(LoginRequiredMixin, CheckPremGroupMexin , UpdateView):
+    template_name = 'car\carCreate.html'
+    fields = '__all__'
+    model = Car
+    success_url = '/'
+    group = ['manager']
+
+class Service_CompanyCreateView(LoginRequiredMixin, CheckPremGroupMexin ,CreateView):
     fields = '__all__'
     model = Service_Company
     template_name = 'root\create_dictionaryi.html'
     success_url = 'create_car'
+    group = ['manager']
 
-class ClientCreateView(LoginRequiredMixin,CreateView):
+class ClientCreateView(LoginRequiredMixin,CheckPremGroupMexin ,CreateView):
     fields = '__all__'
     model = Client
     template_name = 'root\create_dictionaryi.html'
     success_url = 'create_car'
+    group = ['manager']
 
-class ModelSteeringBridgeCreateView(LoginRequiredMixin,CreateView):
+class ModelSteeringBridgeCreateView(LoginRequiredMixin,CheckPremGroupMexin, CreateView):
     fields = '__all__'
     model = Model_Steering_Bridge
     template_name = 'root\create_dictionaryi.html'
     success_url = 'create_car'
+    group = ['manager']
 
-class ModelDriveAxleCreateView(LoginRequiredMixin,CreateView):
+class ModelDriveAxleCreateView(LoginRequiredMixin,CheckPremGroupMexin, CreateView):
     fields = '__all__'
     model = Model_Drive_Axle
     template_name = 'root\create_dictionaryi.html'
     success_url = 'create_car'
+    group = ['manager']
 
-class ModelTransmissionCreateView(LoginRequiredMixin,CreateView):
+class ModelTransmissionCreateView(LoginRequiredMixin, CheckPremGroupMexin ,CreateView):
     fields = '__all__'
     model = Model_Transmission
     template_name = 'root\create_dictionaryi.html'
     success_url = 'create_car'
+    group = ['manager']
 
-class ModelEngineCreateView(LoginRequiredMixin,CreateView):
+class ModelEngineCreateView(LoginRequiredMixin,CheckPremGroupMexin, CreateView):
     fields = '__all__'
     model = Model_Engine
     template_name = 'root\create_dictionaryi.html'
     success_url = 'create_car'
+    group = ['manager']
 
-class ModelTechniqueCraeteView(LoginRequiredMixin,CreateView):
+class ModelTechniqueCraeteView(LoginRequiredMixin,CheckPremGroupMexin, CreateView):
     fields = '__all__'
     model = Model_Technique
     template_name = 'root\create_dictionaryi.html'
     success_url = 'create_car'
+    group = ['manager']
+    
+    
+
+class Service_CompanyUpdateView(LoginRequiredMixin, CheckPremGroupMexin ,UpdateView):
+    fields = '__all__'
+    model = Service_Company
+    template_name = 'root\create_dictionaryi.html'
+    success_url = 'create_car'
+    group = ['manager']
+
+class ClientUpdateView(LoginRequiredMixin,CheckPremGroupMexin ,UpdateView):
+    fields = '__all__'
+    model = Client
+    template_name = 'root\create_dictionaryi.html'
+    success_url = 'create_car'
+    group = ['manager']
+
+class ModelSteeringBridgeUpdateView(LoginRequiredMixin,CheckPremGroupMexin, UpdateView):
+    fields = '__all__'
+    model = Model_Steering_Bridge
+    template_name = 'root\create_dictionaryi.html'
+    success_url = 'create_car'
+    group = ['manager']
+
+class ModelDriveAxleUpdateView(LoginRequiredMixin,CheckPremGroupMexin, UpdateView):
+    fields = '__all__'
+    model = Model_Drive_Axle
+    template_name = 'root\create_dictionaryi.html'
+    success_url = 'create_car'
+    group = ['manager']
+
+class ModelTransmissionUpdateView(LoginRequiredMixin, CheckPremGroupMexin ,UpdateView):
+    fields = '__all__'
+    model = Model_Transmission
+    template_name = 'root\create_dictionaryi.html'
+    success_url = 'create_car'
+    group = ['manager']
+
+class ModelEngineUpdateView(LoginRequiredMixin,CheckPremGroupMexin, UpdateView):
+    fields = '__all__'
+    model = Model_Engine
+    template_name = 'root\create_dictionaryi.html'
+    success_url = 'create_car'
+    group = ['manager']
+
+class ModelTechniqueCraeteView(LoginRequiredMixin,CheckPremGroupMexin, UpdateView):
+    fields = '__all__'
+    model = Model_Technique
+    template_name = 'root\create_dictionaryi.html'
+    success_url = 'create_car'
+    group = ['manager']
 

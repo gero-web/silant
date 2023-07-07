@@ -1,5 +1,5 @@
 {% extends 'root\base.html' %}
-
+{% load has_group %}
 {% block content %}
 <p>
     <label >Дата отказа:</label>  
@@ -16,6 +16,12 @@
 <p>
     <label >Узел отказа описание:</label>  
     {{object.failure_node.description}}
+   
+</p>
+<p>
+        <label > Узел отказа </label>  
+        {{object.failure_node.description}}
+                
 </p>
 <p>
     <label >Описание отказа:</label>  
@@ -45,4 +51,18 @@
     <label >Cервисная компания:</label>  
     {{object.service_company}}
 </p>
+
+{% if user|has_group:'manager' %}
+            <div>
+                <a href="{% url 'claims:update_failure' pk=object.failure_node.pk %}">
+                    Редактировать узел отказа
+                </a>
+                <a href="{% url 'claims:recovery_update' pk=object.failure_node.pk %}">
+                    Редактировать  метод восстановления
+                </a>
+                <a href="{% url 'claims:claims_update' pk=object.pk %}">
+                    Редактировать  рекламация
+                </a>
+            </div>
+    {%endif%}
 {% endblock %}

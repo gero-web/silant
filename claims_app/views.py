@@ -1,12 +1,12 @@
 from typing import Any, Dict
 from django.db.models.query import QuerySet
-from django.shortcuts import render
-from django.views.generic import ListView,DetailView,CreateView
+from django.views.generic import ListView,DetailView,CreateView, UpdateView
 from claims_app.models import Claims, Recovery_Method, Failure_Node
 from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin
 from claims_app.forms.form_filter import FromFilter
 from silant.utils.getFilters import get_filters
 from django.db.models import Q
+from silant.utils.check_group import CheckPremGroupMexin
 
 
 class ClaimsListView(LoginRequiredMixin,ListView):
@@ -37,24 +37,50 @@ class ClaimsListView(LoginRequiredMixin,ListView):
         return super().get_queryset()
     
     
-class ClaimsCreateView(LoginRequiredMixin,CreateView):
-    template_name = 'claims\claims_create.html'
-    fields = '__all__'
-    model = Claims
-   # permission_required = 'Can add car'
 
 class ClaimsDetailView(LoginRequiredMixin, DetailView):
     model = Claims
     template_name ='claims\claims_detail.html'
 
-class RecoveryCreateView(LoginRequiredMixin,CreateView):
+    
+class ClaimsCreateView(LoginRequiredMixin, CheckPremGroupMexin,CreateView):
+    template_name = 'claims\claims_create.html'
+    fields = '__all__'
+    model = Claims
+    group = ['service_organization', 'manager', ]
+   # permission_required = 'Can add car'
+
+class RecoveryCreateView(LoginRequiredMixin,CheckPremGroupMexin,CreateView):
     template_name = 'root\create_dictionaryi.html'
     fields = '__all__'
     model = Recovery_Method
+    group = ['service_organization', 'manager', ]
    # permission_required = 'Can add car'
 
-class FailureCreateView(LoginRequiredMixin,CreateView):
+class FailureCreateView(LoginRequiredMixin,CheckPremGroupMexin,CreateView):
     template_name = 'root\create_dictionaryi.html'
     fields = '__all__'
     model = Failure_Node
+    group = ['service_organization', 'manager', ]
+   # permission_required = 'Can add car'
+   
+class ClaimsUpdateView(LoginRequiredMixin, CheckPremGroupMexin,UpdateView):
+    template_name = 'claims\claims_create.html'
+    fields = '__all__'
+    model = Claims
+    group = ['service_organization', 'manager', ]
+   # permission_required = 'Can add car'
+
+class RecoveryUpdateView(LoginRequiredMixin,CheckPremGroupMexin,UpdateView):
+    template_name = 'root\create_dictionaryi.html'
+    fields = '__all__'
+    model = Recovery_Method
+    group = ['service_organization', 'manager', ]
+   # permission_required = 'Can add car'
+
+class FailureUpdateView(LoginRequiredMixin,CheckPremGroupMexin,UpdateView):
+    template_name = 'root\create_dictionaryi.html'
+    fields = '__all__'
+    model = Failure_Node
+    group = ['service_organization', 'manager', ]
    # permission_required = 'Can add car'

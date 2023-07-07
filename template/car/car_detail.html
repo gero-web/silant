@@ -1,5 +1,5 @@
 {% extends 'root\base.html' %}
-
+{% load has_group %}
 {% block content %}
 <p>
     <label >Заводской номер машины:</label> 
@@ -56,7 +56,7 @@
 </p>
 <p>
     <label >Описание моста:</label>  
-    {{object.head_steering_bridge_no.description}}
+    {{object.model_steering_bridge.description}}
 </p>
 <p>
     <label >Номнер заказа:</label>  
@@ -86,6 +86,33 @@
         <label >Сервисная компания:</label>  
         {{object.service_company.name}}
     </p>
+    {% if user|has_group:'manager' %}
+        <div>
+             
+            <a href="{% url 'car:technique_update' pk=object.model_techique.pk %}">
+                Редактировать  модель техники
+            </a> 
+            <a href="{% url 'car:engine_update' pk=object.model_engine.pk %}">
+                Редактировать  модель двигателя
+            </a>
+            <a href="{% url 'car:transmission_update' pk=object.model_transmission.pk %}">
+                Редактировать  модель трансмиссии
+            </a>
+            <a href="{% url 'car:drive_axle_update' pk=object.model_drive_axle.pk %}">
+                Редактировать  модель ведущего моста
+            </a>
+            <a href="{% url 'car:steering_bridge_update' pk=object.model_steering_bridge.pk %}">
+                Редактировать  модель управляемого моста
+            </a>
+            <a href="{% url 'car:client_update' pk=object.client.pk %}">
+                Редактировать  клиента
+            </a>
+            <a href="{% url 'car:service_company_update' pk=object.service_company.pk %}">
+                Редактировать  сервисную компанию
+            </a>
+        </div>
+    {% endif %}
+
 {% endif %}
 
 
