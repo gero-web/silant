@@ -147,7 +147,7 @@ a:visited{
     margin-top: 4vh;
    
     a{
-        height: 38.39px;
+        height: 38px;
         background-color: $main_two;
         color: white;
         font-family: PT-Astra-Sans_Italic;
@@ -157,7 +157,7 @@ a:visited{
 
     div{
         position: relative;
-        height: 38.39px;
+        height: 38px;
         display: flex;
         align-items: center;
         align-content: center;
@@ -175,8 +175,8 @@ a:visited{
         clear:both;
         width:0;
         height:0;
-        border-left: 38.39px solid transparent;
-        border-bottom: 38.39px solid $main_two;
+        border-left: 38px solid transparent;
+        border-bottom: 38px solid $main_two;
         position:absolute;
         top:0;
         left:-38px;
@@ -187,8 +187,8 @@ a:visited{
         clear:both;
         width:0;
         height:0;
-        border-right:38.39px solid transparent;
-        border-top:38.39px solid $main_two;
+        border-right:38px solid transparent;
+        border-top:38px solid $main_two;
         position:absolute;
         top:0;
         right:-38px;
@@ -227,7 +227,6 @@ a:visited{
     }
     
 }
-
 
 
 @import './headers/header.scss';

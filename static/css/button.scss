@@ -43,8 +43,8 @@ button{
 	clear:both;
 	width:0;
 	height:0;
-    border-left:38.39px solid transparent;
-	border-bottom:38.39px solid $main_one;
+    border-left:38px solid transparent;
+	border-bottom:38px solid $main_one;
 	position:absolute;
 	top:0;
 	left:-38px;
@@ -55,8 +55,8 @@ button{
 	clear:both;
 	width:0;
 	height:0;
-    border-right:38.39px solid transparent;
-	border-top:38.39px solid $main_one;
+    border-right:38px solid transparent;
+	border-top:38px solid $main_one;
 	position:absolute;
 	top:0;
 	right:-38px;
@@ -85,11 +85,11 @@ button{
 	clear:both;
 	width:0;
 	height:0;
-	border-left:38.39px solid transparent;
-	border-bottom:38.39px solid $main_two;
+	border-left:38px solid transparent;
+	border-bottom:38px solid $main_two;
 	position:absolute;
 	top:0;
-	left: -38.39px;
+	left: -38px;
 }
 .span:after {
 	content:'';
@@ -97,8 +97,8 @@ button{
 	clear:both;
 	width:0;
 	height:0;
-	border-right:38.39px solid transparent;
-	border-top:38.39px solid $main_two;
+	border-right:38px solid transparent;
+	border-top:38px solid $main_two;
 	position:absolute;
 	top:0;
 	right: -38px;

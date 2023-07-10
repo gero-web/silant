@@ -105,14 +105,14 @@ a:visited {
   flex-direction: row;
   margin-top: 4vh; }
   .main-link-container a {
-    height: 38.39px;
+    height: 38px;
     background-color: #D20A11;
     color: white;
     font-family: PT-Astra-Sans_Italic;
     position: absolute; }
   .main-link-container div {
     position: relative;
-    height: 38.39px;
+    height: 38px;
     display: flex;
     align-items: center;
     align-content: center;
@@ -125,8 +125,8 @@ a:visited {
     clear: both;
     width: 0;
     height: 0;
-    border-left: 38.39px solid transparent;
-    border-bottom: 38.39px solid #D20A11;
+    border-left: 38px solid transparent;
+    border-bottom: 38px solid #D20A11;
     position: absolute;
     top: 0;
     left: -38px; }
@@ -136,8 +136,8 @@ a:visited {
     clear: both;
     width: 0;
     height: 0;
-    border-right: 38.39px solid transparent;
-    border-top: 38.39px solid #D20A11;
+    border-right: 38px solid transparent;
+    border-top: 38px solid #D20A11;
     position: absolute;
     top: 0;
     right: -38px; }
@@ -387,8 +387,8 @@ button {
   clear: both;
   width: 0;
   height: 0;
-  border-left: 38.39px solid transparent;
-  border-bottom: 38.39px solid #163E6c;
+  border-left: 38px solid transparent;
+  border-bottom: 38px solid #163E6c;
   position: absolute;
   top: 0;
   left: -38px; }
@@ -399,8 +399,8 @@ button {
   clear: both;
   width: 0;
   height: 0;
-  border-right: 38.39px solid transparent;
-  border-top: 38.39px solid #163E6c;
+  border-right: 38px solid transparent;
+  border-top: 38px solid #163E6c;
   position: absolute;
   top: 0;
   right: -38px; }
@@ -424,11 +424,11 @@ button {
   clear: both;
   width: 0;
   height: 0;
-  border-left: 38.39px solid transparent;
-  border-bottom: 38.39px solid #D20A11;
+  border-left: 38px solid transparent;
+  border-bottom: 38px solid #D20A11;
   position: absolute;
   top: 0;
-  left: -38.39px; }
+  left: -38px; }
 
 .span:after {
   content: '';
@@ -436,8 +436,8 @@ button {
   clear: both;
   width: 0;
   height: 0;
-  border-right: 38.39px solid transparent;
-  border-top: 38.39px solid #D20A11;
+  border-right: 38px solid transparent;
+  border-top: 38px solid #D20A11;
   position: absolute;
   top: 0;
   right: -38px; }
