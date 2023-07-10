@@ -11,8 +11,8 @@ urlpatterns = [
     path('claims_create', ClaimsCreateView.as_view(), name='claims_create'),
     path('recovery_cteate', RecoveryCreateView.as_view(), name='claims_create_recovery'),
     path('create_failure', FailureCreateView.as_view(), name='claims_create_failure'),
-    path('claims_update\<int:pk>', ClaimsUpdateView.as_view(), name='claims_update'),
-    path('recovery_update\<int:pk>', FailureUpdateView.as_view(), name='claims_update_failure'),
-    path('update_failure\<int:pk>', RecoveryUpdateView.as_view(), name='claims_update_recovery'),
+    path('claims_update/<int:pk>', ClaimsUpdateView.as_view(), name='claims_update'),
+    path('recovery_update/<int:pk>', FailureUpdateView.as_view(), name='claims_update_failure'),
+    path('update_failure/<int:pk>', RecoveryUpdateView.as_view(), name='claims_update_recovery'),
 ]
 
